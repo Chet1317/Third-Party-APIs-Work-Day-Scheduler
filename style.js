@@ -1,2 +1,3 @@
-var day = new Date();
+var day = moment();
 document.getElementById("currentDay").innerHTML = day
+
