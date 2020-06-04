@@ -1,7 +1,7 @@
-var currentDay = new Date().getHours();
+var currentDay = moment();
 document.getElementById("currentDay").innerHTML = currentDay
 var textArea = document.querySelector(".textarea");
-var saveButton = document.querySelector(".saveBtn");
+var saveButton = document.querySelector(".saveBtn")
 var containerEl = document.querySelector(".container")
 var hours = [
     {hour: "9 am", number: 9 },
@@ -22,13 +22,13 @@ containerEl.innerHTML +=
 `<div class = "row">
     <div class = "hour col">${hour}</div>
     <textarea class = "col-8" data-idx="" id = "${numbers}"></textarea>
-    <button type = "col button" onClick="saveWork(${numbers})" class = "saveBtn"><i class = "far fa-save"></i></button>
+    <button type = "col button" onClick= "saveWork(${numbers})" class = "saveBtn"><i class = "far fa-save"></i></button>
     </div>`;
 
-    if(currentDay == numbers){
+    if(moment().format("H") == numbers){
         console.log("this is present");
         $("#" + numbers).addClass("present");
-    }else if(currentDay > numbers){
+    }else if(moment().format("H") > numbers){
         console.log("This is past hour");
         $("#" + numbers).addClass("past");
     }else {
@@ -36,4 +36,13 @@ containerEl.innerHTML +=
         $("#" + numbers).addClass("future");
     }
 }
+
+
+
+function saveWork(numbers) {
+    var input = document.getElementById(`${numbers}`).value;
+    localStorage.setItem(saveWork, input);
+    console.log(input)
+}
+
 
