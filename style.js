@@ -37,8 +37,6 @@ containerEl.innerHTML +=
     }
 }
 
-
-
 function saveWork(numbers) {
     var input = document.getElementById(`${numbers}`).value;
     localStorage.setItem(saveWork, input);
